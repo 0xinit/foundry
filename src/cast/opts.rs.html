@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/cast/src/opts.rs`."><title>opts.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../static.files/rustdoc-7dc20aaa.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="cast" data-themes="" data-resource-suffix="" data-rustdoc-version="1.91.0-nightly (160e7623e 2025-08-26)" data-channel="nightly" data-search-js="search-5fc2c5c0.js" data-stringdex-js="stringdex-0e748618.js" data-settings-js="settings-c38705f0.js" ><script src="../../static.files/storage-e2aeef58.js"></script><script defer src="../../static.files/src-script-813739b1.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-17c00ba7.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-32bb7600.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-044be391.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><section id="main-content" class="content"><div class="main-heading"><h1><div class="sub-heading">cast/</div>opts.rs</h1><rustdoc-toolbar></rustdoc-toolbar></div><div class="example-wrap digits-4"><pre class="rust"><code><a href=#1 id=1 data-nosnippet>1</a><span class="kw">use </span><span class="kw">crate</span>::cmd::{
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/cast/src/opts.rs`."><title>opts.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../static.files/rustdoc-7dc20aaa.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="cast" data-themes="" data-resource-suffix="" data-rustdoc-version="1.91.0-nightly (cdb45c87e 2025-08-27)" data-channel="nightly" data-search-js="search-5fc2c5c0.js" data-stringdex-js="stringdex-0e748618.js" data-settings-js="settings-c38705f0.js" ><script src="../../static.files/storage-e2aeef58.js"></script><script defer src="../../static.files/src-script-813739b1.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-17c00ba7.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-32bb7600.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-044be391.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><section id="main-content" class="content"><div class="main-heading"><h1><div class="sub-heading">cast/</div>opts.rs</h1><rustdoc-toolbar></rustdoc-toolbar></div><div class="example-wrap digits-4"><pre class="rust"><code><a href=#1 id=1 data-nosnippet>1</a><span class="kw">use </span><span class="kw">crate</span>::cmd::{
 <a href=#2 id=2 data-nosnippet>2</a>    <a href="cmd/access_list.rs.html#17-44">access_list::AccessListArgs</a>, <a href="cmd/artifact.rs.html#21-46">artifact::ArtifactArgs</a>, <a href="cmd/bind.rs.html#11-54">bind::BindArgs</a>, <a href="cmd/call.rs.html#67-168">call::CallArgs</a>,
 <a href=#3 id=3 data-nosnippet>3</a>    <a href="cmd/constructor_args.rs.html#18-32">constructor_args::ConstructorArgsArgs</a>, <a href="cmd/create2.rs.html#19-90">create2::Create2Args</a>, <a href="cmd/creation_code.rs.html#21-47">creation_code::CreationCodeArgs</a>,
 <a href=#4 id=4 data-nosnippet>4</a>    <a href="cmd/da_estimate.rs.html#16-21">da_estimate::DAEstimateArgs</a>, <a href="cmd/estimate.rs.html#16-48">estimate::EstimateArgs</a>, <a href="cmd/find_block.rs.html#13-19">find_block::FindBlockArgs</a>,
@@ -10,7 +10,7 @@
 <a href=#10 id=10 data-nosnippet>10</a><span class="kw">use </span>alloy_rpc_types::BlockId;
 <a href=#11 id=11 data-nosnippet>11</a><span class="kw">use </span>clap::{Parser, Subcommand, ValueHint};
 <a href=#12 id=12 data-nosnippet>12</a><span class="kw">use </span><a href="https://docs.rs/eyre/0.6.12/eyre/type.Result.html">eyre::Result</a>;
-<a href=#13 id=13 data-nosnippet>13</a><span class="kw">use </span>foundry_cli::opts::{<a href="../../foundry_cli/opts/rpc/struct.EtherscanOpts.html">EtherscanOpts</a>, <a href="../../foundry_cli/opts/global/struct.GlobalArgs.html">GlobalArgs</a>, <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>};
+<a href=#13 id=13 data-nosnippet>13</a><span class="kw">use </span>foundry_cli::opts::{EtherscanOpts, GlobalArgs, RpcOpts};
 <a href=#14 id=14 data-nosnippet>14</a><span class="kw">use </span>foundry_common::version::{LONG_VERSION, SHORT_VERSION};
 <a href=#15 id=15 data-nosnippet>15</a><span class="kw">use </span>std::{<a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">path::PathBuf</a>, <a href="https://doc.rust-lang.org/nightly/core/str/traits/trait.FromStr.html">str::FromStr</a>};
 <a href=#16 id=16 data-nosnippet>16</a>
@@ -26,7 +26,7 @@
 <a href=#26 id=26 data-nosnippet>26</a></span><span class="kw">pub struct </span><a href="#26-33">Cast</a> {
 <a href=#27 id=27 data-nosnippet>27</a>    <span class="doccomment">/// Include the global arguments.
 <a href=#28 id=28 data-nosnippet>28</a>    </span><span class="attr">#[command(flatten)]
-<a href=#29 id=29 data-nosnippet>29</a>    </span><span class="kw">pub </span>global: <a href="../../foundry_cli/opts/global/struct.GlobalArgs.html">GlobalArgs</a>,
+<a href=#29 id=29 data-nosnippet>29</a>    </span><span class="kw">pub </span>global: GlobalArgs,
 <a href=#30 id=30 data-nosnippet>30</a>
 <a href=#31 id=31 data-nosnippet>31</a>    <span class="attr">#[command(subcommand)]
 <a href=#32 id=32 data-nosnippet>32</a>    </span><span class="kw">pub </span>cmd: <a href="#36-1131">CastSubcommand</a>,
@@ -389,7 +389,7 @@
 <a href=#389 id=389 data-nosnippet>389</a>        </span>full: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
 <a href=#390 id=390 data-nosnippet>390</a>
 <a href=#391 id=391 data-nosnippet>391</a>        <span class="attr">#[command(flatten)]
-<a href=#392 id=392 data-nosnippet>392</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#392 id=392 data-nosnippet>392</a>        </span>rpc: RpcOpts,
 <a href=#393 id=393 data-nosnippet>393</a>    },
 <a href=#394 id=394 data-nosnippet>394</a>
 <a href=#395 id=395 data-nosnippet>395</a>    <span class="doccomment">/// Get the latest block number.
@@ -398,7 +398,7 @@
 <a href=#398 id=398 data-nosnippet>398</a>        <span class="doccomment">/// The hash or tag to query. If not specified, the latest number is returned.
 <a href=#399 id=399 data-nosnippet>399</a>        </span>block: <a class="prelude-ty" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html">Option</a>&lt;BlockId&gt;,
 <a href=#400 id=400 data-nosnippet>400</a>        <span class="attr">#[command(flatten)]
-<a href=#401 id=401 data-nosnippet>401</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#401 id=401 data-nosnippet>401</a>        </span>rpc: RpcOpts,
 <a href=#402 id=402 data-nosnippet>402</a>    },
 <a href=#403 id=403 data-nosnippet>403</a>
 <a href=#404 id=404 data-nosnippet>404</a>    <span class="doccomment">/// Perform a call on an account without publishing a transaction.
@@ -423,21 +423,21 @@
 <a href=#423 id=423 data-nosnippet>423</a>    <span class="doccomment">/// Get the symbolic name of the current chain.
 <a href=#424 id=424 data-nosnippet>424</a>    </span>Chain {
 <a href=#425 id=425 data-nosnippet>425</a>        <span class="attr">#[command(flatten)]
-<a href=#426 id=426 data-nosnippet>426</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#426 id=426 data-nosnippet>426</a>        </span>rpc: RpcOpts,
 <a href=#427 id=427 data-nosnippet>427</a>    },
 <a href=#428 id=428 data-nosnippet>428</a>
 <a href=#429 id=429 data-nosnippet>429</a>    <span class="doccomment">/// Get the Ethereum chain ID.
 <a href=#430 id=430 data-nosnippet>430</a>    </span><span class="attr">#[command(visible_aliases = <span class="kw-2">&amp;</span>[<span class="string">"ci"</span>, <span class="string">"cid"</span>]</span>)]
 <a href=#431 id=431 data-nosnippet>431</a>    ChainId {
 <a href=#432 id=432 data-nosnippet>432</a>        <span class="attr">#[command(flatten)]
-<a href=#433 id=433 data-nosnippet>433</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#433 id=433 data-nosnippet>433</a>        </span>rpc: RpcOpts,
 <a href=#434 id=434 data-nosnippet>434</a>    },
 <a href=#435 id=435 data-nosnippet>435</a>
 <a href=#436 id=436 data-nosnippet>436</a>    <span class="doccomment">/// Get the current client version.
 <a href=#437 id=437 data-nosnippet>437</a>    </span><span class="attr">#[command(visible_alias = <span class="string">"cl"</span>)]
 <a href=#438 id=438 data-nosnippet>438</a>    </span>Client {
 <a href=#439 id=439 data-nosnippet>439</a>        <span class="attr">#[command(flatten)]
-<a href=#440 id=440 data-nosnippet>440</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#440 id=440 data-nosnippet>440</a>        </span>rpc: RpcOpts,
 <a href=#441 id=441 data-nosnippet>441</a>    },
 <a href=#442 id=442 data-nosnippet>442</a>
 <a href=#443 id=443 data-nosnippet>443</a>    <span class="doccomment">/// Compute the contract address from a given nonce and deployer address.
@@ -473,7 +473,7 @@
 <a href=#473 id=473 data-nosnippet>473</a>        </span>init_code_hash: <a class="prelude-ty" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html">Option</a>&lt;<a href="../../cast/revm/primitives/type.B256.html">B256</a>&gt;,
 <a href=#474 id=474 data-nosnippet>474</a>
 <a href=#475 id=475 data-nosnippet>475</a>        <span class="attr">#[command(flatten)]
-<a href=#476 id=476 data-nosnippet>476</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#476 id=476 data-nosnippet>476</a>        </span>rpc: RpcOpts,
 <a href=#477 id=477 data-nosnippet>477</a>    },
 <a href=#478 id=478 data-nosnippet>478</a>
 <a href=#479 id=479 data-nosnippet>479</a>    <span class="doccomment">/// Disassembles a hex-encoded bytecode into a human-readable representation.
@@ -514,7 +514,7 @@
 <a href=#514 id=514 data-nosnippet>514</a>        </span>raw: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
 <a href=#515 id=515 data-nosnippet>515</a>
 <a href=#516 id=516 data-nosnippet>516</a>        <span class="attr">#[command(flatten)]
-<a href=#517 id=517 data-nosnippet>517</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#517 id=517 data-nosnippet>517</a>        </span>rpc: RpcOpts,
 <a href=#518 id=518 data-nosnippet>518</a>
 <a href=#519 id=519 data-nosnippet>519</a>        <span class="doccomment">/// If specified, the transaction will be converted to a TransactionRequest JSON format.
 <a href=#520 id=520 data-nosnippet>520</a>        </span><span class="attr">#[arg(long)]
@@ -539,7 +539,7 @@
 <a href=#539 id=539 data-nosnippet>539</a>        </span>cast_async: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
 <a href=#540 id=540 data-nosnippet>540</a>
 <a href=#541 id=541 data-nosnippet>541</a>        <span class="attr">#[command(flatten)]
-<a href=#542 id=542 data-nosnippet>542</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#542 id=542 data-nosnippet>542</a>        </span>rpc: RpcOpts,
 <a href=#543 id=543 data-nosnippet>543</a>    },
 <a href=#544 id=544 data-nosnippet>544</a>
 <a href=#545 id=545 data-nosnippet>545</a>    <span class="doccomment">/// Sign and publish a transaction.
@@ -557,7 +557,7 @@
 <a href=#557 id=557 data-nosnippet>557</a>        </span>cast_async: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
 <a href=#558 id=558 data-nosnippet>558</a>
 <a href=#559 id=559 data-nosnippet>559</a>        <span class="attr">#[command(flatten)]
-<a href=#560 id=560 data-nosnippet>560</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#560 id=560 data-nosnippet>560</a>        </span>rpc: RpcOpts,
 <a href=#561 id=561 data-nosnippet>561</a>    },
 <a href=#562 id=562 data-nosnippet>562</a>
 <a href=#563 id=563 data-nosnippet>563</a>    <span class="doccomment">/// Estimate the gas cost of a transaction.
@@ -688,7 +688,7 @@
 <a href=#688 id=688 data-nosnippet>688</a>        </span>who: NameOrAddress,
 <a href=#689 id=689 data-nosnippet>689</a>
 <a href=#690 id=690 data-nosnippet>690</a>        <span class="attr">#[command(flatten)]
-<a href=#691 id=691 data-nosnippet>691</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#691 id=691 data-nosnippet>691</a>        </span>rpc: RpcOpts,
 <a href=#692 id=692 data-nosnippet>692</a>    },
 <a href=#693 id=693 data-nosnippet>693</a>
 <a href=#694 id=694 data-nosnippet>694</a>    <span class="doccomment">/// Fetch the EIP-1967 admin account
@@ -705,7 +705,7 @@
 <a href=#705 id=705 data-nosnippet>705</a>        </span>who: NameOrAddress,
 <a href=#706 id=706 data-nosnippet>706</a>
 <a href=#707 id=707 data-nosnippet>707</a>        <span class="attr">#[command(flatten)]
-<a href=#708 id=708 data-nosnippet>708</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#708 id=708 data-nosnippet>708</a>        </span>rpc: RpcOpts,
 <a href=#709 id=709 data-nosnippet>709</a>    },
 <a href=#710 id=710 data-nosnippet>710</a>
 <a href=#711 id=711 data-nosnippet>711</a>    <span class="doccomment">/// Get the function signatures for the given selector from &lt;https://openchain.xyz&gt;.
@@ -768,7 +768,7 @@
 <a href=#768 id=768 data-nosnippet>768</a>        </span>block: <a class="prelude-ty" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html">Option</a>&lt;BlockId&gt;,
 <a href=#769 id=769 data-nosnippet>769</a>
 <a href=#770 id=770 data-nosnippet>770</a>        <span class="attr">#[command(flatten)]
-<a href=#771 id=771 data-nosnippet>771</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#771 id=771 data-nosnippet>771</a>        </span>rpc: RpcOpts,
 <a href=#772 id=772 data-nosnippet>772</a>    },
 <a href=#773 id=773 data-nosnippet>773</a>
 <a href=#774 id=774 data-nosnippet>774</a>    <span class="doccomment">/// Get the balance of an account in wei.
@@ -789,7 +789,7 @@
 <a href=#789 id=789 data-nosnippet>789</a>        </span>ether: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
 <a href=#790 id=790 data-nosnippet>790</a>
 <a href=#791 id=791 data-nosnippet>791</a>        <span class="attr">#[command(flatten)]
-<a href=#792 id=792 data-nosnippet>792</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#792 id=792 data-nosnippet>792</a>        </span>rpc: RpcOpts,
 <a href=#793 id=793 data-nosnippet>793</a>
 <a href=#794 id=794 data-nosnippet>794</a>        <span class="doccomment">/// erc20 address to query, with the method `balanceOf(address) return (uint256)`, alias
 <a href=#795 id=795 data-nosnippet>795</a>        /// with '--erc721'
@@ -806,7 +806,7 @@
 <a href=#806 id=806 data-nosnippet>806</a>        </span>block: <a class="prelude-ty" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html">Option</a>&lt;BlockId&gt;,
 <a href=#807 id=807 data-nosnippet>807</a>
 <a href=#808 id=808 data-nosnippet>808</a>        <span class="attr">#[command(flatten)]
-<a href=#809 id=809 data-nosnippet>809</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#809 id=809 data-nosnippet>809</a>        </span>rpc: RpcOpts,
 <a href=#810 id=810 data-nosnippet>810</a>    },
 <a href=#811 id=811 data-nosnippet>811</a>
 <a href=#812 id=812 data-nosnippet>812</a>    <span class="doccomment">/// Get the runtime bytecode of a contract.
@@ -827,7 +827,7 @@
 <a href=#827 id=827 data-nosnippet>827</a>        </span>disassemble: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
 <a href=#828 id=828 data-nosnippet>828</a>
 <a href=#829 id=829 data-nosnippet>829</a>        <span class="attr">#[command(flatten)]
-<a href=#830 id=830 data-nosnippet>830</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#830 id=830 data-nosnippet>830</a>        </span>rpc: RpcOpts,
 <a href=#831 id=831 data-nosnippet>831</a>    },
 <a href=#832 id=832 data-nosnippet>832</a>
 <a href=#833 id=833 data-nosnippet>833</a>    <span class="doccomment">/// Get the runtime bytecode size of a contract.
@@ -844,14 +844,14 @@
 <a href=#844 id=844 data-nosnippet>844</a>        </span>who: NameOrAddress,
 <a href=#845 id=845 data-nosnippet>845</a>
 <a href=#846 id=846 data-nosnippet>846</a>        <span class="attr">#[command(flatten)]
-<a href=#847 id=847 data-nosnippet>847</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#847 id=847 data-nosnippet>847</a>        </span>rpc: RpcOpts,
 <a href=#848 id=848 data-nosnippet>848</a>    },
 <a href=#849 id=849 data-nosnippet>849</a>
 <a href=#850 id=850 data-nosnippet>850</a>    <span class="doccomment">/// Get the current gas price.
 <a href=#851 id=851 data-nosnippet>851</a>    </span><span class="attr">#[command(visible_alias = <span class="string">"g"</span>)]
 <a href=#852 id=852 data-nosnippet>852</a>    </span>GasPrice {
 <a href=#853 id=853 data-nosnippet>853</a>        <span class="attr">#[command(flatten)]
-<a href=#854 id=854 data-nosnippet>854</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#854 id=854 data-nosnippet>854</a>        </span>rpc: RpcOpts,
 <a href=#855 id=855 data-nosnippet>855</a>    },
 <a href=#856 id=856 data-nosnippet>856</a>
 <a href=#857 id=857 data-nosnippet>857</a>    <span class="doccomment">/// Generate event signatures from event string.
@@ -886,7 +886,7 @@
 <a href=#886 id=886 data-nosnippet>886</a>        </span>verify: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
 <a href=#887 id=887 data-nosnippet>887</a>
 <a href=#888 id=888 data-nosnippet>888</a>        <span class="attr">#[command(flatten)]
-<a href=#889 id=889 data-nosnippet>889</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#889 id=889 data-nosnippet>889</a>        </span>rpc: RpcOpts,
 <a href=#890 id=890 data-nosnippet>890</a>    },
 <a href=#891 id=891 data-nosnippet>891</a>
 <a href=#892 id=892 data-nosnippet>892</a>    <span class="doccomment">/// Perform an ENS reverse lookup.
@@ -900,7 +900,7 @@
 <a href=#900 id=900 data-nosnippet>900</a>        </span>verify: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
 <a href=#901 id=901 data-nosnippet>901</a>
 <a href=#902 id=902 data-nosnippet>902</a>        <span class="attr">#[command(flatten)]
-<a href=#903 id=903 data-nosnippet>903</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#903 id=903 data-nosnippet>903</a>        </span>rpc: RpcOpts,
 <a href=#904 id=904 data-nosnippet>904</a>    },
 <a href=#905 id=905 data-nosnippet>905</a>
 <a href=#906 id=906 data-nosnippet>906</a>    <span class="doccomment">/// Get the raw value of a contract's storage slot.
@@ -925,7 +925,7 @@
 <a href=#925 id=925 data-nosnippet>925</a>        </span>block: <a class="prelude-ty" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html">Option</a>&lt;BlockId&gt;,
 <a href=#926 id=926 data-nosnippet>926</a>
 <a href=#927 id=927 data-nosnippet>927</a>        <span class="attr">#[command(flatten)]
-<a href=#928 id=928 data-nosnippet>928</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#928 id=928 data-nosnippet>928</a>        </span>rpc: RpcOpts,
 <a href=#929 id=929 data-nosnippet>929</a>    },
 <a href=#930 id=930 data-nosnippet>930</a>
 <a href=#931 id=931 data-nosnippet>931</a>    <span class="doccomment">/// Get the nonce for an account.
@@ -942,7 +942,7 @@
 <a href=#942 id=942 data-nosnippet>942</a>        </span>who: NameOrAddress,
 <a href=#943 id=943 data-nosnippet>943</a>
 <a href=#944 id=944 data-nosnippet>944</a>        <span class="attr">#[command(flatten)]
-<a href=#945 id=945 data-nosnippet>945</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#945 id=945 data-nosnippet>945</a>        </span>rpc: RpcOpts,
 <a href=#946 id=946 data-nosnippet>946</a>    },
 <a href=#947 id=947 data-nosnippet>947</a>
 <a href=#948 id=948 data-nosnippet>948</a>    <span class="doccomment">/// Get the codehash for an account.
@@ -963,7 +963,7 @@
 <a href=#963 id=963 data-nosnippet>963</a>        </span>slots: <a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html">Vec</a>&lt;<a href="../../cast/revm/primitives/type.B256.html">B256</a>&gt;,
 <a href=#964 id=964 data-nosnippet>964</a>
 <a href=#965 id=965 data-nosnippet>965</a>        <span class="attr">#[command(flatten)]
-<a href=#966 id=966 data-nosnippet>966</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#966 id=966 data-nosnippet>966</a>        </span>rpc: RpcOpts,
 <a href=#967 id=967 data-nosnippet>967</a>    },
 <a href=#968 id=968 data-nosnippet>968</a>
 <a href=#969 id=969 data-nosnippet>969</a>    <span class="doccomment">/// Get the storage root for an account.
@@ -984,7 +984,7 @@
 <a href=#984 id=984 data-nosnippet>984</a>        </span>slots: <a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html">Vec</a>&lt;<a href="../../cast/revm/primitives/type.B256.html">B256</a>&gt;,
 <a href=#985 id=985 data-nosnippet>985</a>
 <a href=#986 id=986 data-nosnippet>986</a>        <span class="attr">#[command(flatten)]
-<a href=#987 id=987 data-nosnippet>987</a>        </span>rpc: <a href="../../foundry_cli/opts/rpc/struct.RpcOpts.html">RpcOpts</a>,
+<a href=#987 id=987 data-nosnippet>987</a>        </span>rpc: RpcOpts,
 <a href=#988 id=988 data-nosnippet>988</a>    },
 <a href=#989 id=989 data-nosnippet>989</a>
 <a href=#990 id=990 data-nosnippet>990</a>    <span class="doccomment">/// Get the source code of a contract from a block explorer.
@@ -1002,7 +1002,7 @@
 <a href=#1002 id=1002 data-nosnippet>1002</a>        </span>directory: <a class="prelude-ty" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html">Option</a>&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">PathBuf</a>&gt;,
 <a href=#1003 id=1003 data-nosnippet>1003</a>
 <a href=#1004 id=1004 data-nosnippet>1004</a>        <span class="attr">#[command(flatten)]
-<a href=#1005 id=1005 data-nosnippet>1005</a>        </span>etherscan: <a href="../../foundry_cli/opts/rpc/struct.EtherscanOpts.html">EtherscanOpts</a>,
+<a href=#1005 id=1005 data-nosnippet>1005</a>        </span>etherscan: EtherscanOpts,
 <a href=#1006 id=1006 data-nosnippet>1006</a>
 <a href=#1007 id=1007 data-nosnippet>1007</a>        <span class="doccomment">/// Alternative explorer API URL to use that adheres to the Etherscan API. If not provided,
 <a href=#1008 id=1008 data-nosnippet>1008</a>        /// defaults to Etherscan.

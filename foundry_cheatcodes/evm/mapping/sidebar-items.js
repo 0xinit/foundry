@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["mapping_slot","slot_child","step"],"struct":["MappingSlots"]};
+window.SIDEBAR_ITEMS = {"fn":["mapping_slot","slot_child","step"]};
